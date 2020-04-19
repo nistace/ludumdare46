@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class RobotWrench : MonoBehaviour {
@@ -15,7 +14,6 @@ public class RobotWrench : MonoBehaviour {
 	public Flower flower         => _flower;
 
 	public Flower.Event onFlowerGathered { get; } = new Flower.Event();
-	public UnityEvent   onFlowerLost     { get; } = new UnityEvent();
 
 	private void Awake() {
 		Inputs.controls.Robot.Throw.AddPerformListenerOnce(Throw);
@@ -54,9 +52,8 @@ public class RobotWrench : MonoBehaviour {
 
 	private void DetachFlower(Vector2 force) {
 		if (!_flower) return;
-		_flower.Detach(force);
+		_flower.Detach(transform, force);
 		_flower = null;
-		onFlowerLost.Invoke();
 	}
 
 	private void Update() {

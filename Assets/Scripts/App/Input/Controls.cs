@@ -25,6 +25,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ToggleAudioSettings"",
+                    ""type"": ""Button"",
+                    ""id"": ""3ffc4888-3c53-4a18-b90e-cb64aaf1a4f4"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -36,6 +44,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""RestartLevel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4cef7301-6db0-4111-93aa-959dfa45147c"",
+                    ""path"": ""<Keyboard>/semicolon"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleAudioSettings"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -156,6 +175,7 @@ public class @Controls : IInputActionCollection, IDisposable
         // Global
         m_Global = asset.FindActionMap("Global", throwIfNotFound: true);
         m_Global_RestartLevel = m_Global.FindAction("RestartLevel", throwIfNotFound: true);
+        m_Global_ToggleAudioSettings = m_Global.FindAction("ToggleAudioSettings", throwIfNotFound: true);
         // Robot
         m_Robot = asset.FindActionMap("Robot", throwIfNotFound: true);
         m_Robot_HorizontalMovement = m_Robot.FindAction("HorizontalMovement", throwIfNotFound: true);
@@ -211,11 +231,13 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Global;
     private IGlobalActions m_GlobalActionsCallbackInterface;
     private readonly InputAction m_Global_RestartLevel;
+    private readonly InputAction m_Global_ToggleAudioSettings;
     public struct GlobalActions
     {
         private @Controls m_Wrapper;
         public GlobalActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @RestartLevel => m_Wrapper.m_Global_RestartLevel;
+        public InputAction @ToggleAudioSettings => m_Wrapper.m_Global_ToggleAudioSettings;
         public InputActionMap Get() { return m_Wrapper.m_Global; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -228,6 +250,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @RestartLevel.started -= m_Wrapper.m_GlobalActionsCallbackInterface.OnRestartLevel;
                 @RestartLevel.performed -= m_Wrapper.m_GlobalActionsCallbackInterface.OnRestartLevel;
                 @RestartLevel.canceled -= m_Wrapper.m_GlobalActionsCallbackInterface.OnRestartLevel;
+                @ToggleAudioSettings.started -= m_Wrapper.m_GlobalActionsCallbackInterface.OnToggleAudioSettings;
+                @ToggleAudioSettings.performed -= m_Wrapper.m_GlobalActionsCallbackInterface.OnToggleAudioSettings;
+                @ToggleAudioSettings.canceled -= m_Wrapper.m_GlobalActionsCallbackInterface.OnToggleAudioSettings;
             }
             m_Wrapper.m_GlobalActionsCallbackInterface = instance;
             if (instance != null)
@@ -235,6 +260,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @RestartLevel.started += instance.OnRestartLevel;
                 @RestartLevel.performed += instance.OnRestartLevel;
                 @RestartLevel.canceled += instance.OnRestartLevel;
+                @ToggleAudioSettings.started += instance.OnToggleAudioSettings;
+                @ToggleAudioSettings.performed += instance.OnToggleAudioSettings;
+                @ToggleAudioSettings.canceled += instance.OnToggleAudioSettings;
             }
         }
     }
@@ -291,6 +319,7 @@ public class @Controls : IInputActionCollection, IDisposable
     public interface IGlobalActions
     {
         void OnRestartLevel(InputAction.CallbackContext context);
+        void OnToggleAudioSettings(InputAction.CallbackContext context);
     }
     public interface IRobotActions
     {

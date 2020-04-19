@@ -27,6 +27,7 @@ public class Flower : MonoBehaviour, IAttachableItem {
 	}
 
 	private void Die() {
+		if (dead) return;
 		PlaySfx(AudioSfxCategory.FlowerDie);
 		dead = true;
 		_animator.SetDead(true);
@@ -42,7 +43,8 @@ public class Flower : MonoBehaviour, IAttachableItem {
 		_animator.SetAttached(true);
 	}
 
-	public void Detach(Vector2? force) {
+	public void Detach(Transform parent, Vector2? force) {
+		if (transform.parent != parent) return;
 		_rigidbody.bodyType = RigidbodyType2D.Dynamic;
 		if (force != null) _rigidbody.AddForce(force.Value);
 		_transform.SetParent(null);

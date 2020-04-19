@@ -32,9 +32,9 @@ public class AudioManager : MonoBehaviour {
 	}
 
 	public static class Sfx {
-		private static float volume {
+		public static float volume {
 			get => instance._sfxVolume;
-			set => instance._sfxVolume = value;
+			private set => instance._sfxVolume = value;
 		}
 
 		private static Dictionary<AudioSfxCategory, List<AudioClip>> clips { get; } = new Dictionary<AudioSfxCategory, List<AudioClip>>();

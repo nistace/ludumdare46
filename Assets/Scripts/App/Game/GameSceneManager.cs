@@ -19,7 +19,8 @@ public class GameSceneManager : MonoBehaviour {
 		cameraTransform = _camera.transform;
 		_flower.onDied.AddListener(HandleFlowerDead);
 		foreach (var level in _levels) level.SetLevelEnabled(false);
-		RestartCurrentLevel();
+		if (_levelIndex == _levels.Length - 1) PlayOutro();
+		else RestartCurrentLevel();
 		SetLoadLevelLerp(1);
 		RefreshUiLevel();
 		Inputs.controls.Global.RestartLevel.AddPerformListenerOnce(RestartCurrentLevel);
@@ -44,8 +45,19 @@ public class GameSceneManager : MonoBehaviour {
 		cameraTransform.position = Vector3.Lerp(cameraTransform.position, currentLevel.cameraPosition, levelLerp * levelLerp);
 		_camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, currentLevel.cameraOrthographicSize, levelLerp * levelLerp);
 		if (levelLerp < 1) return;
-		currentLevel.RestartMechanisms();
-		EnableLevel();
+		if (_levelIndex == _levels.Length - 1) {
+			PlayOutro();
+		}
+		else {
+			currentLevel.RestartMechanisms();
+			EnableLevel();
+		}
+	}
+
+	private void PlayOutro() {
+		_robot.gameObject.SetActive(false);
+		currentLevel.SetLevelEnabled(true);
+		currentLevel.GetComponentInChildren<OutroLevel>().Play();
 	}
 
 	private void EnableLevel() {

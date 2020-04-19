@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using LD46.Game.Data;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -46,7 +45,7 @@ public class Travelator : MonoBehaviour, IMechanism {
 
 	private void HandleObjectLeft(Collider2D item) {
 		if (!item.TryGetComponentInParent<IAttachableItem>(out var attachableItem)) return;
-		attachableItem.Detach(_throwForce);
+		attachableItem.Detach(transform, _throwForce);
 		objectsOnTravelator.Remove(attachableItem);
 	}
 

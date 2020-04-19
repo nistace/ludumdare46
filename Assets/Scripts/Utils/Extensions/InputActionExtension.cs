@@ -58,6 +58,8 @@ public static class InputActionExtension {
 		throw new IndexOutOfRangeException($"inputAction {inputAction.name} does not have enough non-composite bindings. Index {index} requested.");
 	}
 
+	public static string GetDisplayName(this InputAction action, int index = 0) => action.GetControl(action.GetNonCompositeBinding(index)).displayName;
+
 	public static int IndexOfNonCompositeBinding(this InputAction inputAction, InputBinding binding) {
 		var index = -1;
 		foreach (var inputBinding in inputAction.bindings) {

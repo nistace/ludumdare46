@@ -1,5 +1,4 @@
-﻿using LD46.Game.Data;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Robot : MonoBehaviour, IAttachableItem {
 	[SerializeField] protected RobotMovement _movement;
@@ -18,5 +17,8 @@ public class Robot : MonoBehaviour, IAttachableItem {
 		if (setPosition != null) transform.position = setPosition.Value;
 	}
 
-	public void Detach(Vector2? force) => transform.SetParent(null);
+	public void Detach(Transform parent, Vector2? force) {
+		if (transform.parent != parent) return;
+		transform.SetParent(null);
+	}
 }

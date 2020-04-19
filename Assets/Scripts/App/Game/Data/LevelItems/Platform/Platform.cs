@@ -27,9 +27,9 @@ public class Platform : MonoBehaviour, IMechanism {
 		attachableItem.AttachTo(transform, null);
 	}
 
-	private static void HandleObjectLeft(Collider2D item) {
+	private void HandleObjectLeft(Collider2D item) {
 		if (!item.TryGetComponentInParent<IAttachableItem>(out var attachableItem)) return;
-		attachableItem.Detach(null);
+		attachableItem.Detach(transform, null);
 	}
 
 	private void Start() {
