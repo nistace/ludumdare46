@@ -398,8 +398,8 @@ MonoBehaviour:
   _animator: {fileID: 8688447099691367106}
   _flower: {fileID: 7185315821850221964}
   _rigidbody: {fileID: 6755756895449733488}
-  _flowerLostOnVerticalSpeed: -4
-  _flowerLostForce: 30
+  _flowerLostOnVerticalSpeed: -8
+  _flowerLostForce: 10
 --- !u!1 &6755756895449720462
 GameObject:
   m_ObjectHideFlags: 0

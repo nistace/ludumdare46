@@ -37,8 +37,8 @@ public class GameSceneManager : MonoBehaviour {
 
 	private void SetLoadLevelLerp(float lerp) {
 		levelLerp = lerp;
-		cameraTransform.position = Vector3.Lerp(cameraTransform.position, currentLevel.cameraPosition, levelLerp);
-		_camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, currentLevel.cameraOrthographicSize, levelLerp);
+		cameraTransform.position = Vector3.Lerp(cameraTransform.position, currentLevel.cameraPosition, levelLerp * levelLerp);
+		_camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, currentLevel.cameraOrthographicSize, levelLerp * levelLerp);
 		if (levelLerp >= 1) EnableLevel();
 	}
 

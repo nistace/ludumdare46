@@ -77,6 +77,21 @@ TextureImporter:
   - first:
       213: 6240237649467206276
     second: scenary_24
+  - first:
+      213: 7639590378404064093
+    second: scenary_25
+  - first:
+      213: 6610679089948651832
+    second: scenary_26
+  - first:
+      213: 1660780753033504117
+    second: scenary_27
+  - first:
+      213: 6229400106565132343
+    second: scenary_28
+  - first:
+      213: 8051224469690243891
+    second: scenary_29
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -693,6 +708,111 @@ TextureImporter:
       bones: []
       spriteID: 95b09f5c9a77bd0419269137ac5355bc
       internalID: 6240237649467206276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scenary_25
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 1
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50a7bebafb39f8d48a8140912d6c3556
+      internalID: 7639590378404064093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scenary_26
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 1
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f16d13cc46ace04885248c5b9dca453
+      internalID: 6610679089948651832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scenary_27
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 1
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb51b1f690a32934ea3e43124547c73f
+      internalID: 1660780753033504117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scenary_28
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 1
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22e1e5520c38e5a40a15f1f6c48d2790
+      internalID: 6229400106565132343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scenary_29
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 1
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c0042c666d911747bc7226e268c6cff
+      internalID: 8051224469690243891
       vertices: []
       indices: 
       edges: []
