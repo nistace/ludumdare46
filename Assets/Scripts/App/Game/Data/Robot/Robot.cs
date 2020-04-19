@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using LD46.Game.Data;
+using UnityEngine;
 
-public class Robot : MonoBehaviour {
+public class Robot : MonoBehaviour, IAttachableItem {
 	[SerializeField] protected RobotMovement _movement;
 	[SerializeField] protected RobotWrench   _wrench;
 	public                     bool          holdsFlower => _wrench.flower;
@@ -11,4 +12,11 @@ public class Robot : MonoBehaviour {
 	}
 
 	public void Attach(Flower flower) => _wrench.Attach(flower);
+
+	public void AttachTo(Transform parent, Vector2? setPosition) {
+		transform.SetParent(parent);
+		if (setPosition != null) transform.position = setPosition.Value;
+	}
+
+	public void Detach(Vector2? force) => transform.SetParent(null);
 }

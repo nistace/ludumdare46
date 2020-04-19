@@ -8,9 +8,10 @@ public class Shooter : MonoBehaviour, IMechanism {
 	[SerializeField] protected float           _bulletsPerSecond = .5f;
 	[SerializeField] protected Transform       _spawnPosition;
 	[SerializeField] protected Vector2         _initialForce;
-	[SerializeField] protected float           _loadNextBullet = .5f;
-	[SerializeField] protected bool            _on             = true;
-	[SerializeField] protected bool            _statusOnStart  = true;
+	[SerializeField] protected float           _loadNextBullet        = .5f;
+	[SerializeField] protected float           _loadNextBulletOnStart = .5f;
+	[SerializeField] protected bool            _on                    = true;
+	[SerializeField] protected bool            _statusOnStart         = true;
 
 	public bool       isOn            => _on;
 	public UnityEvent onStatusChanged { get; } = new UnityEvent();
@@ -32,6 +33,7 @@ public class Shooter : MonoBehaviour, IMechanism {
 		newBullet.transform.position = _spawnPosition.position;
 		newBullet.gameObject.SetActive(true);
 		newBullet.rigidbody.velocity = _initialForce;
+		AudioManager.Sfx.Play(AudioSfxCategory.Shoot);
 	}
 
 	public void SetOn(bool on, bool force = false) {
@@ -40,5 +42,8 @@ public class Shooter : MonoBehaviour, IMechanism {
 		onStatusChanged.Invoke();
 	}
 
-	public void ResetOn() => SetOn(_statusOnStart);
+	public void ResetOn() {
+		_loadNextBullet = _loadNextBulletOnStart;
+		SetOn(_statusOnStart);
+	}
 }

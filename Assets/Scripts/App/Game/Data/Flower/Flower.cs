@@ -1,5 +1,4 @@
-﻿using LD46.Game.Data;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 public class Flower : MonoBehaviour, IAttachableItem {
@@ -26,6 +25,7 @@ public class Flower : MonoBehaviour, IAttachableItem {
 	private void Die() {
 		Debug.Log("Flower: Ha ouh aah I dieded.");
 		_animator.SetDead(true);
+		AudioManager.Sfx.Play(AudioSfxCategory.FlowerDie);
 		onDied.Invoke();
 	}
 
@@ -51,9 +51,5 @@ public class Flower : MonoBehaviour, IAttachableItem {
 	private void Update() {
 		if (attached) return;
 		_animator.SetVerticalMovement(_rigidbody.velocity.y);
-	}
-
-	private void OnTriggerEnter2D(Collider2D other) {
-		Debug.Log("TriggerEnter");
 	}
 }

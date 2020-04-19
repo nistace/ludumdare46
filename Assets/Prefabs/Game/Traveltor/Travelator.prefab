@@ -251,6 +251,7 @@ MonoBehaviour:
   _travelatorSpeed: 1
   _throwForce: {x: 40, y: 0}
   _on: 1
+  _statusOnStart: 1
   _arrows:
   - {fileID: 381512968962144933}
   - {fileID: 381512968735738592}
@@ -468,7 +469,7 @@ GameObject:
   - component: {fileID: 381512970548505531}
   - component: {fileID: 381512970548505529}
   - component: {fileID: 381512970548505528}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ObjectCatcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}

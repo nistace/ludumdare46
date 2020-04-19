@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 8096608866539458796}
   - component: {fileID: 8096608866539458795}
   m_Layer: 0
-  m_Name: Button
+  m_Name: BlueButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,6 +123,7 @@ MonoBehaviour:
   _renderer: {fileID: 8096608866703219901}
   _groundCheck: {fileID: 8096608866283989573}
   _on: 0
+  _statusOnStart: 0
   _offColor: {r: 0.101960786, g: 0.15294118, b: 0.27450982, a: 1}
   _onColor: {r: 0.38039216, g: 0.5647059, b: 1, a: 1}
 --- !u!95 &8096608866539458796

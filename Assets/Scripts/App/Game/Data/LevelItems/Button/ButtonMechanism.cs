@@ -22,8 +22,10 @@ public class ButtonMechanism : MonoBehaviour, IMechanism {
 	}
 
 	private void HandlePressChanged() {
-		_animator.SetPressed(_groundCheck.isOnGround);
-		if (!_groundCheck.isOnGround) SetOn(!_on);
+		var pressed = _groundCheck.isOnGround;
+		_animator.SetPressed(pressed);
+		if (!pressed) SetOn(!_on);
+		AudioManager.Sfx.Play(pressed ? AudioSfxCategory.ButtonPress : AudioSfxCategory.ButtonRelease);
 	}
 
 	private void Start() {

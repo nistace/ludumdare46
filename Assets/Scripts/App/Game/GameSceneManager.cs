@@ -8,6 +8,7 @@ public class GameSceneManager : MonoBehaviour {
 	[SerializeField] protected Robot   _robot;
 	[SerializeField] protected Flower  _flower;
 	[SerializeField] protected float   _loadLevelSpeed = 1;
+	[SerializeField] protected GameUi  _ui;
 
 	private Level currentLevel => _levels[_levelIndex];
 
@@ -28,6 +29,7 @@ public class GameSceneManager : MonoBehaviour {
 		DisableLevel();
 		_levelIndex++;
 		levelLerp = 0;
+		_ui.SetLevelName($"Level {_levelIndex + 1}");
 	}
 
 	private void Update() {
@@ -39,7 +41,9 @@ public class GameSceneManager : MonoBehaviour {
 		levelLerp = lerp;
 		cameraTransform.position = Vector3.Lerp(cameraTransform.position, currentLevel.cameraPosition, levelLerp * levelLerp);
 		_camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, currentLevel.cameraOrthographicSize, levelLerp * levelLerp);
-		if (levelLerp >= 1) EnableLevel();
+		if (levelLerp < 1) return;
+		currentLevel.RestartMechanisms();
+		EnableLevel();
 	}
 
 	private void EnableLevel() {
@@ -66,7 +70,7 @@ public class GameSceneManager : MonoBehaviour {
 		_flower.Revive();
 		_robot.Attach(_flower);
 		currentLevel.Respawn(_robot);
-		currentLevel.Restart();
+		currentLevel.RestartMechanisms();
 		_robot.SetEnabled(true);
 	}
 

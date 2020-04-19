@@ -25,10 +25,12 @@ public class Level : MonoBehaviour {
 	}
 
 	public void Respawn(Robot robot) {
-		robot.transform.position = _respawnPosition.position;
+		var robotTransform = robot.transform;
+		robotTransform.SetParent(null);
+		robotTransform.position = _respawnPosition.position;
 	}
 
-	public void Restart() {
+	public void RestartMechanisms() {
 		foreach (var mechanism in _levelItemContainer.GetComponentsInChildren<IMechanism>()) mechanism.ResetOn();
 	}
 }

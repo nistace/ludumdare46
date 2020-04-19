@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 8096608866539458793, guid: 49e8a72c403e4f14f8380d25457a13f1,
         type: 3}
       propertyPath: m_Name
-      value: RedButton Variant
+      value: RedButton
       objectReference: {fileID: 0}
     - target: {fileID: 8096608866539458794, guid: 49e8a72c403e4f14f8380d25457a13f1,
         type: 3}
@@ -96,6 +96,21 @@ PrefabInstance:
         type: 3}
       propertyPath: _onColor.b
       value: 0.3803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096608866703219901, guid: 49e8a72c403e4f14f8380d25457a13f1,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.27450982
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096608866703219901, guid: 49e8a72c403e4f14f8380d25457a13f1,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.101960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096608866703219901, guid: 49e8a72c403e4f14f8380d25457a13f1,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.101960786
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49e8a72c403e4f14f8380d25457a13f1, type: 3}
