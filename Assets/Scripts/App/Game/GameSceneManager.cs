@@ -21,7 +21,7 @@ public class GameSceneManager : MonoBehaviour {
 		foreach (var level in _levels) level.SetLevelEnabled(false);
 		RestartCurrentLevel();
 		SetLoadLevelLerp(1);
-
+		RefreshUiLevel();
 		Inputs.controls.Global.RestartLevel.AddPerformListenerOnce(RestartCurrentLevel);
 	}
 
@@ -29,8 +29,10 @@ public class GameSceneManager : MonoBehaviour {
 		DisableLevel();
 		_levelIndex++;
 		levelLerp = 0;
-		_ui.SetLevelName($"Level {_levelIndex + 1}");
+		RefreshUiLevel();
 	}
+
+	private void RefreshUiLevel() => _ui.SetLevelName($"Level {_levelIndex + 1}");
 
 	private void Update() {
 		if (levelLerp >= 1) return;
@@ -62,6 +64,7 @@ public class GameSceneManager : MonoBehaviour {
 
 	private void HandleFlowerDead() {
 		_robot.SetEnabled(false);
+		_ui.SetGameOverUiVisible(true);
 	}
 
 	private void RestartCurrentLevel(InputAction.CallbackContext obj) => RestartCurrentLevel();
@@ -72,6 +75,7 @@ public class GameSceneManager : MonoBehaviour {
 		currentLevel.Respawn(_robot);
 		currentLevel.RestartMechanisms();
 		_robot.SetEnabled(true);
+		_ui.SetGameOverUiVisible(false);
 	}
 
 	private void HandleLevelExitReached() {
