@@ -1,5 +1,3 @@
 ﻿using UnityEngine;
 
-namespace LD46.Game.Ui {
-	public class GameUi : MonoBehaviour { }
-}
+public class GameUi : MonoBehaviour { }
