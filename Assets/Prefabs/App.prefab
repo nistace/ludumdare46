@@ -91,8 +91,8 @@ MonoBehaviour:
   _musicSource: {fileID: 8530578509803864976}
   _sfxPrefab: {fileID: 8315263402346473308, guid: eac0c70eb941fa34a8bd5ae9b86cde52,
     type: 3}
-  _sfxVolume: 1
-  _initialMusicVolume: 1
+  _sfxVolume: 0.6
+  _initialMusicVolume: 0.6
   _sfxClipsPerCategory:
   - _category: 0
     _clips:

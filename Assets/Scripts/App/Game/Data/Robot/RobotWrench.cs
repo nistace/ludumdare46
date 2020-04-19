@@ -32,16 +32,18 @@ public class RobotWrench : MonoBehaviour {
 	}
 
 	public void OnTriggerEnter2D(Collider2D other) {
+		if (flower) return;
 		if (other.gameObject.layer != LayerMask.NameToLayer("Soil")) return;
 		Attach(other.GetComponentInParent<Flower>());
-		AudioManager.Sfx.Play(AudioSfxCategory.FlowerCaught);
+		flower.PlaySfx(AudioSfxCategory.FlowerCaught);
 	}
 
 	private void Throw(InputAction.CallbackContext context) {
 		_animator.SetWrenchExtended();
-		DetachFlower(new Vector2(throwDirection * _wrenchAngleCoefficient, 1) * _throwStrength);
-		AudioManager.Sfx.Play(AudioSfxCategory.FlowerThrown);
 		AudioManager.Sfx.Play(AudioSfxCategory.WrenchExpansion);
+		if (!_flower) return;
+		_flower.PlaySfx(AudioSfxCategory.FlowerThrown);
+		DetachFlower(new Vector2(throwDirection * _wrenchAngleCoefficient, 1) * _throwStrength);
 	}
 
 	public void Attach(Flower flower) {
@@ -63,7 +65,7 @@ public class RobotWrench : MonoBehaviour {
 
 	private void CheckLongFall() {
 		if (!flower || _rigidbody.velocity.y > _flowerLostOnVerticalSpeed) return;
+		flower.PlaySfx(AudioSfxCategory.FlowerLost);
 		DetachFlower(new Vector2(_rigidbody.velocity.x, _flowerLostForce));
-		AudioManager.Sfx.Play(AudioSfxCategory.FlowerLost);
 	}
 }

@@ -2530,10 +2530,10 @@ MonoBehaviour:
   - {fileID: 1273319327}
   - {fileID: 174291960}
   - {fileID: 406663866}
-  _levelIndex: 0
+  _levelIndex: 1
   _robot: {fileID: 1733231763}
   _flower: {fileID: 1733231762}
-  _loadLevelSpeed: 1
+  _loadLevelSpeed: 2
   _ui: {fileID: 37556294}
 --- !u!4 &477121976
 Transform:

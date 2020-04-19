@@ -12,6 +12,7 @@ public class Flower : MonoBehaviour, IAttachableItem {
 	[SerializeField] protected FlowerAnimator _animator;
 
 	private bool attached { get; set; }
+	private bool dead     { get; set; }
 
 	public UnityEvent onDied { get; } = new UnityEvent();
 
@@ -20,12 +21,15 @@ public class Flower : MonoBehaviour, IAttachableItem {
 		_soil.onHitNotSoilFriendly.AddListenerOnce(Die);
 	}
 
-	public void Revive() => _animator.SetDead(false);
+	public void Revive() {
+		dead = false;
+		_animator.SetDead(false);
+	}
 
 	private void Die() {
-		Debug.Log("Flower: Ha ouh aah I dieded.");
+		PlaySfx(AudioSfxCategory.FlowerDie);
+		dead = true;
 		_animator.SetDead(true);
-		AudioManager.Sfx.Play(AudioSfxCategory.FlowerDie);
 		onDied.Invoke();
 	}
 
@@ -51,5 +55,10 @@ public class Flower : MonoBehaviour, IAttachableItem {
 	private void Update() {
 		if (attached) return;
 		_animator.SetVerticalMovement(_rigidbody.velocity.y);
+	}
+
+	public void PlaySfx(AudioSfxCategory category) {
+		if (dead) return;
+		AudioManager.Sfx.Play(category);
 	}
 }
