@@ -8,6 +8,7 @@ public class Level : MonoBehaviour {
 	[SerializeField] protected GameObject _backwardBlocker;
 	[SerializeField] protected GameObject _forwardBlocker;
 	[SerializeField] protected GameObject _levelItemContainer;
+	[SerializeField] protected GameObject _levelUi;
 	[SerializeField] protected LevelExit  _exit;
 
 	public Vector3 cameraPosition         => _cameraPosition;
@@ -20,6 +21,7 @@ public class Level : MonoBehaviour {
 		_forwardBlocker.SetActive(enabled);
 		_exit.enabled = enabled;
 		_levelItemContainer.SetActive(enabled);
+		if (_levelUi?.gameObject) _levelUi.gameObject.SetActive(enabled);
 	}
 
 	public void Respawn(Robot robot) {
