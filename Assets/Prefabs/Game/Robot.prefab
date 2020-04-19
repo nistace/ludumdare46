@@ -471,6 +471,11 @@ MonoBehaviour:
   _rigidbody: {fileID: 6755756895449733488}
   _speed: 4
   _animator: {fileID: 8688447099691367106}
+  _bodyCollider: {fileID: 6755756895449720463}
+  _enabledFrictionPhysicsMaterial: {fileID: 6200000, guid: 6d9605757b260b348a2e8de1a30a3c31,
+    type: 2}
+  _disabledFrictionPhysicsMaterial: {fileID: 6200000, guid: 3c6975e8e4dcca748add11ab1006de2e,
+    type: 2}
 --- !u!114 &8688447099691367106
 MonoBehaviour:
   m_ObjectHideFlags: 0

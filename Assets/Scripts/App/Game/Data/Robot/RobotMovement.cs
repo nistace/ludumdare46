@@ -9,12 +9,19 @@ public class RobotMovement : MonoBehaviour {
 	[SerializeField] protected float          _speed = 1;
 	[SerializeField] protected RobotAnimator  _animator;
 
+	[Header("Body friction")] [SerializeField] protected Collider2D        _bodyCollider;
+	[SerializeField]                           protected PhysicsMaterial2D _enabledFrictionPhysicsMaterial;
+	[SerializeField]                           protected PhysicsMaterial2D _disabledFrictionPhysicsMaterial;
+
 	private float movement { get; set; }
 
 	private void Awake() {
 		_wrench.onFlowerGathered.AddListenerOnce(HandleFlowerGathered);
 		Inputs.controls.Robot.HorizontalMovement.AddAnyListenerOnce(HandleHorizontalMovementChanged);
+		_groundCheck.onChange.AddListenerOnce(RefreshBodyColliderFriction);
 	}
+
+	private void RefreshBodyColliderFriction() => _bodyCollider.sharedMaterial = _groundCheck.isOnGround ? _enabledFrictionPhysicsMaterial : _disabledFrictionPhysicsMaterial;
 
 	private void OnEnable() {
 		Inputs.controls.Robot.HorizontalMovement.Enable();
