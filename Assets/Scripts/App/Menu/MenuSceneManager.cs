@@ -9,6 +9,7 @@ public class MenuSceneManager : MonoBehaviour {
 	}
 
 	private static void StartGame() {
+		
 		SceneManager.LoadSceneAsync("Game");
 	}
 }

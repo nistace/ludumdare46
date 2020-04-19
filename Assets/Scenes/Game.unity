@@ -1828,8 +1828,9 @@ MonoBehaviour:
   - 'Please take note of the theme: "Keep it Alive"'
   - She was your only friend.
   - You had one job.
-  - Wasted
+  - Wasted.
   - Let's not make a habit of it, okay?
+  - And it is exactly the opposite of your goal.
 --- !u!1001 &265950307
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2838,7 +2839,7 @@ MonoBehaviour:
   - {fileID: 174291960}
   - {fileID: 406663866}
   - {fileID: 713009997}
-  _levelIndex: 10
+  _levelIndex: 0
   _robot: {fileID: 1733231763}
   _flower: {fileID: 1733231762}
   _loadLevelSpeed: 2
@@ -15008,6 +15009,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 381512969047724362, guid: 13ffd42489cb73d48837e935c0ffca9c,
         type: 3}
+      propertyPath: _arrows.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 381512969047724362, guid: 13ffd42489cb73d48837e935c0ffca9c,
+        type: 3}
       propertyPath: _throwForce.x
       value: -40
       objectReference: {fileID: 0}
@@ -15016,6 +15022,26 @@ PrefabInstance:
       propertyPath: _travelatorSpeed
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 381512969047724362, guid: 13ffd42489cb73d48837e935c0ffca9c,
+        type: 3}
+      propertyPath: _arrows.Array.data[3]
+      value: 
+      objectReference: {fileID: 1793083547}
+    - target: {fileID: 381512969047724362, guid: 13ffd42489cb73d48837e935c0ffca9c,
+        type: 3}
+      propertyPath: _arrows.Array.data[4]
+      value: 
+      objectReference: {fileID: 1051561130}
+    - target: {fileID: 381512969047724362, guid: 13ffd42489cb73d48837e935c0ffca9c,
+        type: 3}
+      propertyPath: _arrows.Array.data[5]
+      value: 
+      objectReference: {fileID: 996003890}
+    - target: {fileID: 381512969047724362, guid: 13ffd42489cb73d48837e935c0ffca9c,
+        type: 3}
+      propertyPath: _arrows.Array.data[6]
+      value: 
+      objectReference: {fileID: 670634849}
     - target: {fileID: 2959568205881873641, guid: 13ffd42489cb73d48837e935c0ffca9c,
         type: 3}
       propertyPath: m_LocalScale.x

@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +18,12 @@ public class AudioSettingsUi : MonoBehaviour {
 	}
 
 	private void SetInfoInput() {
-		var action = Inputs.controls.Global.ToggleAudioSettings;
-		_infoInput.text = $"Show / Hide anytime<br>using <b>{action.GetControl(action.GetNonCompositeBinding()).displayName}";
+		try {
+			var action = Inputs.controls.Global.ToggleAudioSettings;
+			_infoInput.text = $"Show / Hide anytime<br>using <b>{action.GetControl(action.GetNonCompositeBinding()).displayName}</b>";
+		}
+		catch (Exception e) {
+			_infoInput.text = $"Show / Hide anytime<br>using <b>U</b>";
+		}
 	}
 }
