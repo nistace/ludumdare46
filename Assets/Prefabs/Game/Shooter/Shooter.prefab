@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 7639590378404064093, guid: 9c8e52db96ed1cb42807d36e9b429b23,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.48352045, b: 0.18396229, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -165,6 +165,9 @@ MonoBehaviour:
   _bulletsPerSecond: 0.4
   _spawnPosition: {fileID: 6633964492355891238}
   _initialForce: {x: 15, y: 0}
+  _loadNextBullet: 0.5
+  _on: 1
+  _statusOnStart: 1
 --- !u!114 &8827828950172217557
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -66,6 +66,7 @@ public class GameSceneManager : MonoBehaviour {
 		_flower.Revive();
 		_robot.Attach(_flower);
 		currentLevel.Respawn(_robot);
+		currentLevel.Restart();
 		_robot.SetEnabled(true);
 	}
 

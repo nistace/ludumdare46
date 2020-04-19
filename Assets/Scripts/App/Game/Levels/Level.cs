@@ -27,4 +27,8 @@ public class Level : MonoBehaviour {
 	public void Respawn(Robot robot) {
 		robot.transform.position = _respawnPosition.position;
 	}
+
+	public void Restart() {
+		foreach (var mechanism in _levelItemContainer.GetComponentsInChildren<IMechanism>()) mechanism.ResetOn();
+	}
 }
