@@ -43,5 +43,9 @@ public class ButtonMechanism : MonoBehaviour, IMechanism {
 		onStatusChanged.Invoke();
 	}
 
-	public void ResetOn() => SetOn(_statusOnStart);
+	public void ResetOn() {
+		SetOn(_statusOnStart);
+		_groundCheck.Clear();
+		_animator.SetPressed(false);
+	}
 }
